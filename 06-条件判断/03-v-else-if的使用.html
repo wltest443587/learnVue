@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if的使用</title>
+</head>
+<body>
+<div id="id1">
+    <p v-if="score >= 90">优秀</p>
+    <p v-else-if="score >= 80">良好</p>
+    <p v-else-if="score >= 60">及格</p>
+    <p v-else>不及格</p>
+
+    <h2>{{resultScore}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#id1",
+        data: {
+            score: 110,
+            isShow: false
+        },
+        computed: {
+            resultScore:function () {
+                let showMessage = ''
+                if (this.score > 100 & this.score < 0) {
+                    showMessage = '超出数据范围（0-100）'
+                } else if(this.score >= 90) {
+                    showMessage = '优秀'
+                } else if(this.score >= 80) {
+                    showMessage = '良好'
+                } else if(this.score >= 60) {
+                    showMessage = '及格'
+                } else {
+                    showMessage = '不及格'
+                }
+
+                return showMessage
+            }
+        }
+    })
+</script>
+</body>
+</html>

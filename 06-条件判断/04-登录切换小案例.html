@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if的使用</title>
+</head>
+<body>
+<div id="id1">
+    <span v-if="isUser">用户登录</span>
+    <span v-else>邮箱登录</span>
+    <button @click="butCLick12">切换登录</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#id1",
+        data: {
+            message: 0,
+            isUser: false
+        },
+        methods: {
+            butCLick12: function () {
+                this.isUser = !this.isUser
+            }
+        }
+    })
+</script>
+</body>
+</html>

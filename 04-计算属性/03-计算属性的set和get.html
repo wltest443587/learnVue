@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性的set和get</title>
+</head>
+<body>
+<div id="id1">
+    <h2>{{fullname}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#id1",
+        data: {
+            firstname: "tom",
+            lastname: "jack"
+        },
+        // 计算属性 调用时不需要加（）
+        computed: {
+            fullname: {
+                // 计算属性一般没有set方法，是只读属性的、99%的情况下不用。
+                set: function (newv) {
+                    alert("----------"+newv)
+                },
+                get: function () {
+                    return this.firstname + this.lastname
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
