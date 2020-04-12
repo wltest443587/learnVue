@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组语法</title>
+    <style>
+        .active {
+            color: red
+        }
+    </style>
+</head>
+<body>
+<div id="id1">
+    <ul>
+        <li v-on:click="btnlick(index)" :key="index" v-bind:class="{active: index == isActive}" v-for="(movie,index) in movies">{{movie}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app =new Vue({
+        el: "#id1",
+        data: {
+            movies: ['大鱼海棠','火影忍者', '中华小当家', '海尔兄弟'],
+            isActive: false
+        },
+        methods: {
+            btnlick: function (index) {
+                if (index) {
+                    this.isActive = index
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
