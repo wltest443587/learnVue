@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show的使用</title>
+</head>
+<body>
+<div id="id1">
+    <h2 v-if="isShow">
+        <div>刘嚎嚎</div>
+        <div>王雷</div>
+        <div>张晓林</div>
+    </h2>
+    <h2 v-show="isShow">
+        <div>刘嚎嚎</div>
+        <div>王雷</div>
+        <div>张晓林</div>
+    </h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#id1",
+        data: {
+            message: 0,
+            isShow: false
+        }
+    })
+</script>
+</body>
+</html>

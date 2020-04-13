@@ -6,8 +6,15 @@
 </head>
 <body>
 <div id="id1">
-    <span v-if="isUser">用户登录</span>
-    <span v-else>邮箱登录</span>
+    <span v-if="isUser">
+        <label for="username">用户账号</label>
+        <input type="text" id="username" key="user-input" placeholder="用户账号">
+    </span>
+    <span v-else>
+        <label for="email">用户邮箱</label>
+        <input type="text" id="email" key="email-input" placeholder="用户邮箱">
+    </span>
+    <!-- 如果我们不希望出现重复利用的情况，那么就要给其赋key属性，且key不同 -->
     <button @click="butCLick12">切换登录</button>
 </div>
 <script src="../js/vue.js"></script>
