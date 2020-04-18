@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>数组语法</title>
+    <title>数组语法-小案例</title>
     <style>
         .active {
             color: red
@@ -12,7 +12,11 @@
 <body>
 <div id="id1">
     <ul>
-        <li v-on:click="btnlick(index)" :key="index" v-bind:class="{active: index == isActive}" v-for="(movie,index) in movies">{{movie}}</li>
+        <li @click="btnlick(index)" :key="index"
+            v-bind:class="{active: index == isActive}"
+            v-for="(movie,index) in movies">
+            {{movie}}
+        </li>
     </ul>
 </div>
 <script src="../js/vue.js"></script>
@@ -25,9 +29,8 @@
         },
         methods: {
             btnlick: function (index) {
-                if (index) {
-                    this.isActive = index
-                }
+                this.isActive = index
+
             }
         }
     })
