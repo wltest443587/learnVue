@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!-- 使用vue的组件 -->
+    <overralltag></overralltag>
+    <parttag></parttag>
+</div>
+
+<script src="../../js/vue.js"></script>
+<script>
+    // 2. 注册全局组件，语法糖写法
+    Vue.component('overralltag',{
+        template: `
+            <div>
+                <h2>我是全局组件</h2>
+            </div>`
+    });
+
+    const app = new Vue({
+        el: "#app",
+        // 注册局部组件，语法糖写法
+        components: {
+            'parttag': {
+                template: `<div> 我是局部组件</h2></div>`
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

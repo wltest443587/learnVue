@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn v-bind:cnum1="num1" :cnum2="num2"
+         @num1Change="nu1Change" @num2Change="nu2Change"></cpn>
+</div>
+<template id="cpn">
+    <div>
+        <h2>{{cnum1}}</h2>
+        <h2>{{dnum1}}</h2>
+<!--        <input type="text" v-model="dnum1">-->
+        <input type="text" v-bind:value="dnum1" @input="dnum1Input">
+        <h2>{{cnum2}}</h2>
+        <h2>{{dnum2}}</h2>
+<!--        <input type="text" v-model="dnum2">-->
+        <input type="text" v-bind:value="dnum2" @input="dnum2Input">
+    </div>
+</template>
+<script src="../../js/vue.js"></script>
+<script>
+    const ccpn = {
+        template: "#cpn",
+        props: {
+            cnum1: Number,
+            cnum2: Number,
+        },
+        data() {
+            return {
+                dnum1: this.cnum1,
+                dnum2: this.cnum2
+            }
+        },
+        methods: {
+            dnum1Input: function (event) {
+                this.dnum1 = event.target.value
+                this.$emit('num1Change',this.dnum1)
+            },
+            dnum2Input: function (event) {
+                this.dnum2 = event.target.value
+                this.$emit('num2Change',this.dnum2)
+            }
+        },
+        // computed: {
+        //     dnum1: function () {
+        //         return this.cnum1
+        //     },
+        //     dnum2: function () {
+        //         return this.cnum2
+        //     }
+        // }
+
+
+        
+    }
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            num1: 1,
+            num2: 0
+        },
+        methods: {
+            nu1Change: function (value) {
+                this.num1 = value
+            },
+            nu2Change(value){
+                this.num2 = value
+            }
+        },
+        components: {
+            cpn: ccpn
+        }
+    })
+</script>
+
+</body>
+</html>
