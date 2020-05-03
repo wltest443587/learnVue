@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="id1">
+    <h2>{{message}}</h2>
+    <!-- v-once表示该标签只会渲染一次 -->
+    <h2 v-once>{{name}},张夏琳</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#id1",
+        data: {
+            message: "我是豌豆荚",
+            name: "wl"
+        }
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="id1">
+    <a v-bind:href="tesurl">
+        <img v-bind:src="message" alt="">
+    </a>
+    <!-- 语法糖式的写法 -->
+    <a :href="tesurl">
+        <img :src="message" alt="">
+    </a>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app =new Vue({
+        el: "#id1",
+        data: {
+            message: "https://f10.baidu.com/it/u=3142007949,1827689403&fm=173&app=49&f=JPEG?w=640&h=480&s=CCC27223C00A36EE1C18B8840100E091&access=215967316",
+            tesurl: "https://www.baidu.com"
+        }
+    })
+</script>
+</body>
+</html>

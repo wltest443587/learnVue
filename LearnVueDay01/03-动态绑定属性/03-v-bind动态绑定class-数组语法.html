@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组语法</title>
+    <style>
+        .active {
+            color: red
+        }
+    </style>
+</head>
+<body>
+<div id="id1">
+    <h2 class="title" :class="[active,line]">{{message}}</h2>
+    <h2 class="title" :class="['active','line']">{{message}}</h2>
+    <h2 class="title" :class="getH2Class()">{{message}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app =new Vue({
+        el: "#id1",
+        data: {
+            message: "王雷来了",
+            active: "dddd",
+            line: "jxjjx"
+        },
+        methods: {
+            getH2Class: function () {
+                return [this.active,this.line]
+            }
+        }
+    })
+</script>
+</body>
+</html>

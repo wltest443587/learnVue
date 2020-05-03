@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on的参数问题</title>
+</head>
+<body>
+<div id="id1">
+    <!-- 事件调用时没有参数，（）可以省略 -->
+    <button v-on:click="btn1click()">按钮1</button>
+    <button @click="btn1click">按钮2</button>
+    <!-- 事件调用时有参数 如果函数需要传递参数，但是没有传，
+         这个时候Vue会默认将浏览器生成的event对象传递过来-->
+    <button @click="btn2click">按钮3</button>
+    <button @click="btn2click('sjsj')">按钮4</button>
+    <!-- 事件调用时有参数 如果函数需要传递参数和event，event可以使用$event传递-->
+    <button @click="btn3click(123,$event)">按钮5</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#id1",   // 挂在要声明的元素
+        data: {   // 定义数据
+            message: 0
+        },
+        methods: {
+            btn1click: function ($event) {
+                console.log('btn1click')
+            },
+            btn2click(event){
+                console.log("msg:",event)
+            },
+            btn3click(msg,event){
+                console.log("++++++",msg,event)
+            },
+        }
+    })
+</script>
+</body>
+</html>

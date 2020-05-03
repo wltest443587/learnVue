@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model的基本使用</title>
+</head>
+<body>
+<div id="app">
+    <!-- 修饰符lazy -->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+    <!-- 修饰符number -->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}-{{typeof age}}</h2>
+    <!-- 修饰符trim -->
+    <input type="text" v-model.trim="name">
+    <h2>您的名字是：-{{name}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "wls",
+            age: 8,
+            name: "w"
+        }
+    })
+</script>
+</body>
+</html>
